@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | GamerZone</title>
+  <style>
+    body{
+      background:#0d0d0d;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:'Poppins',sans-serif;
+    }
+    .signup-box{
+      background:#1a1a1a;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 0 15px #00ffea;
+      text-align:center;
+      width:320px;
+    }
+    input{
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border:1px solid #333;
+      background:#111;
+      color:#fff;
+      border-radius:8px;
+    }
+    input:focus{outline:none;border-color:#00ffea;}
+    button{
+      width:100%;
+      padding:10px;
+      border:2px solid #00ffea;
+      background:transparent;
+      color:#00ffea;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover{
+      background:#00ffea;
+      color:#111;
+      box-shadow:0 0 15px #00ffea;
+    }
+    a{color:#00ffea;text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create Account</h2>
+    <input type="text" id="newUser" placeholder="Enter Username" required>
+    <input type="password" id="newPass" placeholder="Enter Password" required>
+    <button onclick="signup()">Sign Up</button>
+    <p style="margin-top:10px;">Already have an account? <a href="login.html">Login here</a></p>
+    <p id="msg" style="color:#ff4444;"></p>
+  </div>
+
+  <script>
+    function signup(){
+      const u=document.getElementById("newUser").value;
+      const p=document.getElementById("newPass").value;
+      if(u && p){
+        // localStorage mein save (temporary)
+        localStorage.setItem("user",u);
+        localStorage.setItem("pass",p);
+        alert("Account created! Now login please 🎮");
+        window.location.href="login.html";
+      }else{
+        document.getElementById("msg").innerText="Please fill all fields!";
+      }
+    }
+  </script>
+</body>
+</html>
